@@ -8,8 +8,10 @@ Create task
 {% block content %}
     <h1>Create task</h1>
     <form method="post">
-        <input type="text" placeholder="Input name of task" class="form-control"><br>
-        <textarea type="text" placeholder="Input description" class="form-control"></textarea><br>
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.text }}<br>
         <button type="submit" class="btn btn-success">Add</button>
+        <span>{{ error }}</span>
     </form>
 {% endblock %}
